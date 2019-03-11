@@ -22,6 +22,17 @@
                     }
                   });
 
+        var slots = smart.api.fetchAll({
+                    type: 'Slot',
+                    query: {
+                      slot-type: 'http://snomed.info/sct|394581000&start=2019-03-20'
+                    }
+                  });
+
+        $.when(slots).done(function(slots) {
+          console.log(slots)
+        });
+
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
