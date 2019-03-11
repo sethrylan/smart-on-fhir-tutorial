@@ -8,10 +8,10 @@
     }
 
     function onReady(smart)  {
-      if (smart.hasOwnProperty('patient')) {
-        var patient = smart.patient;
-        var pt = patient.read();
-        var obv = smart.patient.api.fetchAll({
+      if (smart.hasOwnProperty('patient')) {         // If patient is in context
+        var patient = smart.patient;                 //   then declare patient context
+        var pt = patient.read();                     //   and reach patient resource
+        var obv = smart.patient.api.fetchAll({       //   and fetch observations for this patient
                     type: 'Observation',
                     query: {
                       code: {
@@ -22,10 +22,10 @@
                     }
                   });
 
-        var slots = smart.api.fetchAll({
+        var slots = smart.api.fetchAll({            
                     type: 'Slot',
                     query: {
-                      slot-type: 'http://snomed.info/sct|394581000&start=2019-03-20'
+                      'slot-type': 'http://snomed.info/sct|394581000&start=2019-03-20'
                     }
                   });
 
