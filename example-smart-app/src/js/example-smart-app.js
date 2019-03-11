@@ -22,7 +22,7 @@
                     }
                   });
 
-        var slots = smart.api.fetchAll({            
+        var slots = smart.patient.api.fetchAll({            
                     type: 'Slot',
                     query: {
                       'slot-type': 'http://snomed.info/sct|394581000&start=2019-03-20'
